@@ -13,7 +13,12 @@ public final class PageAction {
     public static void waitForElementToBeVisibleAndClick(By locator,int timeout){
         WaitFactory.waitForElementToBeVisible(locator,timeout).click();
     }
-
+    public static void waitForElementToBeVisibleAndType(By locator,String value){
+        WaitFactory.waitForElementToBeVisible(locator).sendKeys(value);
+    }
+    public static void waitForElementToBeVisibleAndType(By locator,String value,int timeout){
+        WaitFactory.waitForElementToBeVisible(locator,timeout).sendKeys(value);
+    }
     public static boolean isDisplayed(By locator){
         try{
             return WaitFactory.waitForElementToBeVisible(locator).isDisplayed();
