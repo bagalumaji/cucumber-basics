@@ -4,7 +4,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features = {"src/test/resources/features"},
-        glue = {"com.bagal.steps"},
+        glue = {"com.bagal.steps","com.bagal.hooks"},
         plugin = {"html:target/report/index.html"
         }
 )
