@@ -1,5 +1,6 @@
 package com.bagal.steps.login;
 
+import com.bagal.driver.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,7 +9,7 @@ import io.cucumber.java.en.When;
 public class LoginSteps {
     @Given("user navigates to the website")
     public void userNavigatesToTheWebsite() {
-        System.out.println("navigates");
+        //Driver.initDriver();
     }
 
     @When("user click on login link")
@@ -34,5 +35,16 @@ public class LoginSteps {
     @Then("user landing on home page")
     public void userLandingOnHomePage() {
         System.out.println("home page");
+      //  Driver.quitDriver();
+    }
+
+    @And("user enter {string} username")
+    public void userEnterUsername(String username) {
+        System.out.println("username = " + username);
+    }
+
+    @And("user enter {string} password")
+    public void userEnterPassword(String password) {
+        System.out.println("password = " + password);
     }
 }
