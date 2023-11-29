@@ -7,6 +7,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+
+import static com.bagal.utils.PropertyUtil.getValue;
+
 public final class WaitFactory {
     private WaitFactory() {
     }
@@ -20,7 +23,7 @@ public final class WaitFactory {
     }
 
     private static WebDriverWait getWait() {
-            return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(15));
+            return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(Integer.parseInt(getValue("defaulttimeout"))));
     }
     private static WebDriverWait getWait(int timeout) {
            return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(timeout));
