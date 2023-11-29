@@ -11,7 +11,8 @@ public class IndexPage extends BasePage {
         return PageAction.isDisplayed(LOGIN_LINK);
     }
 
-    public void clickOnLoginLink(){
+    public LoginPage clickOnLoginLink(){
         PageAction.waitForElementToBeVisibleAndClick(LOGIN_LINK);
+        return new LoginPage();
     }
 }
