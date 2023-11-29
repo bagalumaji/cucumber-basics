@@ -16,22 +16,16 @@ public class LoginPage extends BasePage {
         return PageAction.isDisplayed(TEXT_BOX_USER_NAME);
     }
 
-    public HomePage performLoginToApplication(String userName, String password) {
-        typeUserName(userName).typePassword(password).clickOnLoginButton();
-        return new HomePage();
-    }
 
-    private LoginPage typeUserName(String userName) {
+    public void typeUserName(String userName) {
         waitForElementToBeVisibleAndType(TEXT_BOX_USER_NAME, userName);
-        return this;
     }
 
-    private LoginPage typePassword(String password) {
+    public void typePassword(String password) {
         waitForElementToBeVisibleAndType(TEXT_BOX_PASSWORD, password);
-        return this;
     }
 
-    private void clickOnLoginButton() {
+    public void clickOnLoginButton() {
         PageAction.waitForElementToBeVisibleAndClick(BTN_LOGIN);
     }
 }
