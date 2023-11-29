@@ -1,0 +1,38 @@
+package com.bagal.factories;
+
+import com.bagal.driver.DriverManager;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.Objects;
+
+public final class WaitFactory {
+    private static WebDriverWait wait;
+
+    private WaitFactory() {
+    }
+
+    public static WebElement waitForElementToBeVisible(By locator) {
+        return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public static WebElement waitForElementToBeVisible(By locator, int timeout) {
+        return getWait(timeout).until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    private static WebDriverWait getWait() {
+        if (Objects.isNull(wait)) {
+            wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(15));
+        }
+        return wait;
+    }
+    private static WebDriverWait getWait(int timeout) {
+        if (Objects.isNull(wait)) {
+            wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(timeout));
+        }
+        return wait;
+    }
+}
