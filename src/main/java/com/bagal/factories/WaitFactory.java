@@ -10,8 +10,6 @@ import java.time.Duration;
 import java.util.Objects;
 
 public final class WaitFactory {
-    private static WebDriverWait wait;
-
     private WaitFactory() {
     }
 
@@ -24,15 +22,9 @@ public final class WaitFactory {
     }
 
     private static WebDriverWait getWait() {
-        if (Objects.isNull(wait)) {
-            wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(15));
-        }
-        return wait;
+            return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(15));
     }
     private static WebDriverWait getWait(int timeout) {
-        if (Objects.isNull(wait)) {
-            wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(timeout));
-        }
-        return wait;
+           return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(timeout));
     }
 }
