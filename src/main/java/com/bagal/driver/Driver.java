@@ -1,6 +1,7 @@
 package com.bagal.driver;
 
 import com.bagal.factories.DriverFactory;
+import com.bagal.utils.PropertyUtil;
 
 import java.util.Objects;
 
@@ -10,7 +11,7 @@ public final class Driver {
     public static void initDriver(){
         if(Objects.isNull(DriverManager.getDriver())){
             DriverManager.setDriver(DriverFactory.getDriver());
-            DriverManager.getDriver().get("https://demo.testfire.net/index.jsp");
+            DriverManager.getDriver().get(PropertyUtil.getValue("url"));
         }
     }
 
