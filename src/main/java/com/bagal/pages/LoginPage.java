@@ -16,7 +16,6 @@ public class LoginPage extends BasePage {
         return PageAction.isDisplayed(TEXT_BOX_USER_NAME);
     }
 
-
     public void typeUserName(String userName) {
         waitForElementToBeVisibleAndType(TEXT_BOX_USER_NAME, userName);
     }
