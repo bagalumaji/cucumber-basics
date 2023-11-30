@@ -19,7 +19,13 @@
         <artifactId>cucumber-java</artifactId>
         <version>7.14.1</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports-cucumber4-adapter -->
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.30</version>
+        <scope>provided</scope>
+    </dependency>
+
     <dependency>
         <groupId>com.aventstack</groupId>
         <artifactId>extentreports-cucumber4-adapter</artifactId>
