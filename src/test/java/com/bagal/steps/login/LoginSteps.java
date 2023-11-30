@@ -1,5 +1,6 @@
 package com.bagal.steps.login;
 
+import com.bagal.pages.HomePage;
 import com.bagal.pages.IndexPage;
 import com.bagal.pages.LoginPage;
 import io.cucumber.java.en.And;
@@ -9,6 +10,7 @@ import io.cucumber.java.en.When;
 import org.testng.Assert;
 
 import static com.bagal.utils.PropertyUtil.getValue;
+import static org.testng.Assert.assertTrue;
 
 public class LoginSteps {
     private static final LoginPage LOGIN_PAGE = new LoginPage();
@@ -17,14 +19,14 @@ public class LoginSteps {
     @Given("user navigates to the website")
     public void userNavigatesToTheWebsite() {
         boolean pageLoaded = INDEX_PAGE.isPageLoaded();
-        Assert.assertTrue(pageLoaded);
+        assertTrue(pageLoaded);
 
     }
 
     @When("user click on login link")
     public void userClickOnLoginLink() {
         LoginPage loginPage = INDEX_PAGE.clickOnLoginLink();
-        Assert.assertTrue(loginPage.isPageLoaded());
+        assertTrue(loginPage.isPageLoaded());
     }
 
     @And("user enter username")
@@ -44,8 +46,8 @@ public class LoginSteps {
 
     @Then("user landing on home page")
     public void userLandingOnHomePage() {
-        System.out.println("home page");
-
+        boolean pageLoaded = new HomePage().isPageLoaded();
+        assertTrue(pageLoaded);
     }
 
     @And("user enter {string} username")
